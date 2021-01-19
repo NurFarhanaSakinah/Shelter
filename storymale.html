@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>STORY</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+
+.slideshow-container {
+  padding: 5px;
+  position: relative;
+  margin: auto;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.navbar {
+  overflow: hidden; 
+  background-color:#162249; 
+}
+
+.navbar a {
+  float: left; 
+  font-size:16px; 
+  color: white; 
+  text-align: center; 
+  padding: 14px 20px; 
+  text-decoration: none;
+}
+
+
+.dropdown {
+float: left; 
+  overflow:hidden;
+}
+
+.dropdown .dropbtn {
+  font-size:16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #2E3B67;
+}                                          
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #162249;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #2E3B67;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.main {   
+  flex: 100%;
+  background-color: white;
+  padding: 30px;
+}
+
+.footer {
+  padding: 20px; 
+  text-align: center; 
+  background: #2E3B67;
+  font-size:8px; 
+}
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <img src="header1.png" alt="Header1" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="header2.png" alt="Header2" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="header3.jpg" alt="Header3" style="width:100%">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); 
+}
+</script>
+
+<div class="navbar">
+  <a href="index.html">SHELTER</a>
+  <a href="shelter.html">HISTORY</a>
+  <a href="mission.html">MISSION & GOAL</a>
+  <a href="awards.html">AWARD</a>
+  <a href="donation.html">DONATION</a>
+  <a href="volunteer.html">VOLUNTEER</a>
+  <a href="contact.html">CONTACT</a> 
+ <div class="dropdown">
+    <button class="dropbtn">STORY 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="storychildren.html">STORY ABOUT CHILDREN</a>
+      <a href="storyfemale.html">STORY ABOUT FEMALE TEENAGER</a>
+    </div>
+  </div> 
+</div>
+
+<div class="main">
+	<h1 id="Top">Male Teen</h1>
+	<img src="male.jpg" alt="male" style="width:800px;height:500px;">
+	<h2>David-On the Path To Sucess</h2>
+        <p>"To the supporters and donors, do not feel like your money is wasted. Please do not look at your donation in a short term return but think of it as a long term investment. Think of it as "If I sponsor this kid, in 10 years, where he could be?" Do not think "If I am paying this much, I will get the tax exemption, name and recognition". -David</p>
+
+<p>We are very proud to share that David is the person who coded this newly revamped web page.</p>
+
+<p>David came into SHELTER at the age of 7. He has no recollection of any memory before that and he never knew who his parents were. He only remembers that one of the staff of SHELTER took him from Batu Arang into our Home and the staff left not long after. David did not get the chance to ask about his background from him but David has never lingered on his past and have long accepted his life's circumstances and moved on.</p>
+
+<p>When David entered into SHELTER, he found that he is soaked in an environment that pushes him to learn how to speak in English. Besides that, his life now follows a schedule and a discipline that is shaped by school, tuition and chores as well as having a time of fun with play time and TV. He was close to some of the staff there and one of the staff even taught him how to cook! One person that was like a father figure to him then was the Home Manager, Jin. Jin often took time to teach and constantly listen to the needs of the children.</p>
+
+<p>By the time David was 13 years old, he was moved to the teenage boys Home. He shared that he felt that he could already speak English fluently then. However at that point of time, the teenage boy Home was filled with squabbles and fights among the boys and he felt really agitated as it is natural that teenagers need a lot of private space to explore their own identity. A staff then known as Eric* saw that this was not an environment that would be conducive for the teenagers to grow and excel in so he proposed an idea to the management to start a different Home under his supervision. The idea behind this Home was to select boys who sincerely wanted to learn and excel in life and Eric would dedicate all of his time and energy in building these boys up. This Home was known as Shelter X.</p>
+
+<p>The idea was then approved by the management and so Eric selected the boys from the teenage boys Home; David was one of them.</p>
+
+<p>Eric had a different style of raising the boys. He does not expect the boys to be spoon fed by deciding what they need to do and what they should do throughout the day. He only expected them to follow by the guidelines like not going out and coming back at a certain hours, not mixing with the wrong gang, play truant or to take drugs. What they chose to do within the Home or outside, he left it to them to decide. Eric also gave their pocket money in a lump sum at the beginning of the month. He wanted them to learn how to budget and to have the self-control in their spending. This is because he wanted to prepare them to be independent when they leave SHELTER as most of them will have no one else to depend on. He told them "you guys are old enough to think for yourself, so make the right choices because the choice you make will affect your future".</p>
+
+<p>Eric was not just someone who just gave them the guidance and care; he was also there to help them with their homework and exams at school.</p>
+
+<p>When David finally graduated from SPM, he had nowhere to go. He has no contact to his parents and no relatives have ever tried to contact him during his years at SHELTER. So someone who is close to a staff of SHELTER offered her place for David to stay. Her friend who owns a restaurant then was looking for someone to work there so David decided to take up the job. He then moved out to stay along with the other workers. David was prepared and he did not really have much issue coping. He credited this readiness to Eric who has trained him during his stay with him.</p>
+
+<p>When SPM results were released, David wanted to study. He knew the only way to move forward in life in the city was to get a degree. He did not know where to start as he found that the costs at private colleges are exorbitant. Another staff from SHELTER then, Sophia, followed up with him and came to know about his desire. She then made the necessary arrangements for David. He chose to study at Binary College. When the college saw the letter provided by SHELTER on David's background, they gave him a RM8000 discount on his fees. With the PTPTN loan, David can finally start his college studies in Diploma.</p>
+
+<p>David then met his girlfriend at college and when her family came to know about his background, they offered to support him. After a couple of months, David felt that it wasn't right for him to receive their money so he took on a weekend job with his girlfriend. This job is to clean up the church after service on Sundays. He got some money there but it was not enough so he eventually managed to land an internship job with a company that his lecturer referred him to.</p>
+
+<p>Today, he has not only completed his degree and got a decent job but has also married his girlfriend! Both Eric, his wife and two staff of SHELTER attended his wedding and they were all so happy for him!</p>
+<br>
+  </div>
+<p><a href="#Top">Back to top</a></p>
+<div class="footer">
+  <h2>DISCLAIMER:This website is not the official website of SHELTHER-Home for Children-.This website was developed for the purpose of learning HTML & CSS only. </h2>
+  <h3>Designed by Farhana & Dominic</h3>
+</div>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SHELTER</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+
+.slideshow-container {
+  padding: 10px;
+  position: relative;
+  margin: auto;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.navbar {
+  overflow: hidden; 
+  background-color:#162249; 
+}
+
+.navbar a {
+  float: left; 
+  font-size:16px; 
+  color: white; 
+  text-align: center; 
+  padding: 14px 20px; 
+  text-decoration: none;
+}
+
+
+.dropdown {
+float: left; 
+  overflow:hidden;
+}
+
+.dropdown .dropbtn {
+  font-size:16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #2E3B67;
+}                                          
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #162249;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #2E3B67;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.side {
+  flex: 50%;
+  background-color: #f1f1f1;
+  padding: 30px;
+}
+.main {   
+  flex: 50%;
+  background-color: white;
+  padding: 30px;
+}
+
+.footer {
+  padding: 20px; 
+  text-align: center; 
+  background: #2E3B67;
+  font-size:8px; 
+}
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <img src="header1.png" alt="Header1" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="header2.png" alt="Header2" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="header3.jpg" alt="Header3" style="width:100%">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); 
+}
+</script>
+
+<div class="navbar">
+  <a href="index.html">SHELTER</a>
+  <a href="mission.html">MISSION & GOAL</a>
+  <a href="awards.html">AWARD</a>
+  <a href="donation.html">DONATION</a>
+  <a href="volunteer.html">VOLUNTEER</a>
+  <a href="contact.html">CONTACT</a> 
+ <div class="dropdown">
+    <button class="dropbtn">STORY 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="storychildren.html">STORY ABOUT CHILDREN</a>
+      <a href="storyfemale.html">STORY ABOUT FEMALE TEENAGER</a>
+      <a href="S\storymale.html">STORY ABOUT MALE TEENAGER</a>
+    </div>
+  </div> 
+</div>
+<div class="row">
+<div class="side">
+	<h1 id="Top">OUR HISTORY</h1>
+    	<h2>SHELTER:Home For Children</h2>
+	<img src="history1.jpg" alt="History About The Organization" style="width:600px; height:400px;">
+</div>
+<div class="main">
+    	<h2>History:SHELTER</h2>
+    	<p>SHELTER, a registered welfare organization, has been in existence since 1981 to help abused, abandoned, neglected or at-risk children.</p>
+    	<p>SHELTER Home for Children started as a result of the vision of a group of seven friends who wanted to help the children in a squatter settlement along Old Klang Road. They initiated tuition classes so that the children could do better in their studies.</p>
+    	<p>When the group found three homeless boys sleeping in the corridors of the State Cinema (now Lotus Restaurant, at New Town, Petaling Jaya) the group decided to rent a single storey bungalow in Section 12, Petaling Jaya. "All that we had was an empty house without any furniture. We sat, ate and slept on the floor. But, in the end, the boys stole some money and ran away!" said Mr James Nayagam, former Executive Director of SHELTER, one of the seven friends who started SHELTER.</p>
+	<p>Not disheartened, the group of friends decided to bring one of the families from the settlement who had been evicted from their house, to stay in the house in Section 12. Most families in the settlement were living on rented premises but found it difficult to pay the rent.</p>
+	<p>As numbers in the home increased, we moved to our present premises at Jalan Tinggi, Petaling Jaya. Various groups helped by providing tuition and even fostered those in need of foster care placement.</p>
+	<p>In time, SHELTER established 10 kindergartens in squatter settlements with the first one being in Damansara Dalam (1989). A nominal fee of RM5 was charged per student. These kindergartens were an effort in helping children from underprivileged homes to have a good start in life. SHELTER decided to close down the kindergartens after 15 years of operation when we noticed a dramatic drop in the number of children attending our kindergartens - urban affluence had also affected low income families in their perception and preferences for education for their children.</p>
+	<p>As SHELTER evaluated the work, we decided to move into a more proactive approach in helping disadvantaged children by being a positive influence on teenagers.</p>
+	<p>Hence we ventured into community youth work among young prisoners in Kajang Prison. There are about 1,000 delinquents in Kajang Prison and Sg. Buloh Prison. We hope to educate, train and help the juveniles to regain their self-respect and integrity so that they can rejoin society at a later date. This is very gratifying work as it requires discipline, commitment and focus to run the social work programmes. Currently, this programme has been discontinued.</p>
+	<p>Besides venturing into youth prison work, we have also initiated a youth community centre known as "DropZone". This is a centre for youths to hang out where the focus is on the personal development of youths through healthy and positive activities. The target group is 13 - 20 years old. It was originally set up by us but now it is under Leaderonomics.</p>
+	<p>For the homes, we saw the need for helping teenagers who were beyond parental control. This led to the setting up of Shelter 2 (1987), Shelter 3 (1995), Shelter 4 (1996-2007), Home Parenting Scheme - which is now known as Shelter 4 (2007) and Shelter 5 (2001-2006). After some years, we felt that it was good that we focused on one particular rising concern, which is the abuse, neglect and the abandonment of children and youth. As such, we narrowed down from 5 homes into just three homes which are Shelter 1, Shelter 2 and Shelter 3.</p> 
+<br>
+  </div>
+</div>
+<p><a href="#Top">Back to top</a></p>
+<div class="footer">
+  <h2>DISCLAIMER:This website is not the official website of SHELTHER-Home for Children-.This website was developed for the purpose of learning HTML & CSS only. </h2>
+  <h3>Designed by Farhana & Dominic</h3>
+</div>
+</body>
+</html> 

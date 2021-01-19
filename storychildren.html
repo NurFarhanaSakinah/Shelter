@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>STORY</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+
+.slideshow-container {
+  padding: 5px;
+  position: relative;
+  margin: auto;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.navbar {
+  overflow: hidden; 
+  background-color:#162249; 
+}
+
+.navbar a {
+  float: left; 
+  font-size:16px; 
+  color: white; 
+  text-align: center; 
+  padding: 14px 20px; 
+  text-decoration: none;
+}
+
+
+.dropdown {
+float: left; 
+  overflow:hidden;
+}
+
+.dropdown .dropbtn {
+  font-size:16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #2E3B67;
+}                                          
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #162249;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #2E3B67;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.main {   
+  flex: 100%;
+  background-color: white;
+  padding: 30px;
+}
+
+.footer {
+  padding: 20px; 
+  text-align: center; 
+  background: #2E3B67;
+  font-size:8px; 
+}
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <img src="header1.png" alt="Header1" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="header2.png" alt="Header2" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="header3.jpg" alt="Header3" style="width:100%">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); 
+}
+</script>
+
+<div class="navbar">
+  <a href="index.html">SHELTER</a>
+  <a href="shelter.html">HISTORY</a>
+  <a href="mission.html">MISSION & GOAL</a>
+  <a href="awards.html">AWARD</a>
+  <a href="donation.html">DONATION</a>
+  <a href="volunteer.html">VOLUNTEER</a>
+  <a href="contact.html">CONTACT</a> 
+ <div class="dropdown">
+    <button class="dropbtn">STORY 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="storyfemale.html">STORY ABOUT FEMALE TEENAGER</a>
+      <a href="storymale.html">STORY ABOUT MALE TEENAGER</a>
+    </div>
+  </div> 
+</div>
+<div class="main">
+    	<h1 id="Top">Story</h1>
+	<h1>Children</h1>
+	<img src="children.jpeg" alt="Children" style="width:900px;height:600px;">
+    	<h2>Sunita-Abused By step Family</h2>
+        <p>Her body went into alarm reaction - her heart pounded, she gasped for breath?</p>
+
+<p>Sunita's mother passed away soon after giving birth to her. Sunita's father, on whom fell the responsibility to raise her, was always too busy womanising to have any time for his daughter and eventually sent her to live at a stepsister's house. Nobody bothered to pay any attention to her there.</p>
+
+<p>However, things changed when Sunita turned five. Her step-brother-in-law started to go into her room several nights a week and putting a pillow over her face, raped her. Each time, out of sheer terror, her body went into alarm reaction - her heart pounded, she gasped for breath. After each episode, her eyes stayed wide open, her heart raced, her muscles remained tightened until dawn. This went on for eight years. Sunita began to developed epilepsy.</p>
+
+<p>When her stepsister found out about the rape, she sent her to another stepsister's house where history repeated itself. This time, things got even worse because her stepsister would kick and beat her as punishment for being raped. She was finally abandoned at a police station when she was 14 and sent to Shelter.</p>
+
+<p>Three years later, Sunita is still undergoing treatment for epilepsy which is now under control. The trauma of her childhood lingers on and haunts her as she struggles to adjust to a normal life.</p>
+        <h2>Chong-Mixing with Wrong Friends</h2>
+	<p>Chong* was arrested for stabbing another boy in a gang fight?</p>
+
+<p>Chong is the sixth child in a family of eight children. They lived in poverty and his parents had to spend every waking hour trying to earn a living to support the whole family. There just wasn't any time to spend with their children.</p>
+
+<p>Left on his own, Chong felt bored. He started mixing with bad company at the age of nine. He skipped school, smoked, gambled, shoplifted, got into gang fights and stole money from home. He lost interest in school and dropped out after Standard 6. As the years progressed, Chong and his friends even resorted to extortion to get extra money.</p>
+
+<p>Deep inside, he was just a child crying out for help. He had hoped that his parents would notice his misdeeds and make him stop. When that did not happen, he started staying out more often and getting into more trouble.</p>
+
+<p>His parents finally realised what their son had been up to when Chong was arrested for stabbing another boy in a gang fight. Unable to control him, they approached their priest who recommended that Chong be admitted to Shelter.</p>
+
+<p>When Chong came to us at 14, he tried to run away. He detested attending English, Maths and Auto-Mechanics classes. However he soon made friends with the other boys and realised that he could earn an honest living when he grew up. Now, Chong is determined to become a good mechanic.</p>
+
+ <br>
+  </div>
+<p><a href="#Top">Back to top</a></p>
+<div class="footer">
+  <h2>DISCLAIMER:This website is not the official website of SHELTHER-Home for Children-.This website was developed for the purpose of learning HTML & CSS only. </h2>
+  <h3>Designed by Farhana & Dominic</h3>
+</div>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AWARDS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+
+.slideshow-container {
+  padding: 5px;
+  position: relative;
+  margin: auto;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.navbar {
+  overflow: hidden; 
+  background-color:#162249; 
+}
+
+.navbar a {
+  float: left; 
+  font-size:16px; 
+  color: white; 
+  text-align: center; 
+  padding: 14px 20px; 
+  text-decoration: none;
+}
+
+
+.dropdown {
+float: left; 
+  overflow:hidden;
+}
+
+.dropdown .dropbtn {
+  font-size:16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #2E3B67;
+}                                          
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #162249;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #2E3B67;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.main {   
+  flex: 100%;
+  background-color: white;
+  padding: 30px;
+}
+
+.footer {
+  padding: 20px; 
+  text-align: center; 
+  background: #2E3B67;
+  font-size:8px; 
+}
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <img src="header1.png" alt="Header1" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="header2.png" alt="Header2" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="header3.jpg" alt="Header3" style="width:100%">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); 
+}
+</script>
+
+<div class="navbar">
+  <a href="index.html">SHELTER</a>
+  <a href="shelter.html">HISTORY</a>
+  <a href="mission.html">MISSION & GOAL</a>
+  <a href="donation.html">DONATION</a>
+  <a href="volunteer.html">VOLUNTEER</a>
+  <a href="contact.html">CONTACT</a> 
+ <div class="dropdown">
+    <button class="dropbtn">STORY 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+     <a href="storychildren.html">STORY ABOUT CHILDREN</a>
+      <a href="storyfemale.html">STORY ABOUT FEMALE TEENAGER</a>
+      <a href="storymale.html">STORY ABOUT MALE TEENAGER</a>
+    </div>
+  </div> 
+</div>
+
+<div class="main">
+    	<h1 id="Top">Awards</h1>
+	<img src="award1.jpg" alt="UNHCR" style="width:500px; height:600px;">
+	<h3>The United Nations High Commissioner for Refugees (UNHCR)</h3>
+    	<p>The United Nations High Commissioner for Refugees (UNHCR) awarded SHELTER Community School 1 (SCS1) with the "Outstanding Primary Learning Centre" Award. SCS1 is one of the five schools for refugee children that is under SHELTER.
+UNHCR gave out awards for the Secondary, Primary and Preschool categories for the learning centres for refugees. SCS1 was the winner among other 125 centres in Malaysia in the Primary category.</p>
+	<p>SCS1, in line of its vision to "shelter the future generation", does not constrain her care to only certain races but to all children who seek refuge and aid.</p>
+	<p>SCS1 employs a more creative and non-conventional learning approach for its students. The school also strives to give the best education they can offer for their students.
+</p>
+    	
+ <br>
+	<img src="award2.jpg" alt="Asia Pacific NGO" style="width:500px; height:600px;">
+	<h3>2004 Asia Pacific NGO Awards</h3>
+    	<p>SHELTER was the Malaysian winner of the inaugural 2004 Asia Pacific NGO Awards.</p>
+	<p>SHELTER strives for integrity, trustworthiness, expertise and knowledge, and high standards of performance. The Asia Pacific NGO Awards which had the theme: "celebrating success.... rewarding excellence" attests to SHELTER's professionalism in the area of finance and donations. SHELTER has internal and external checks and balances to ensure that donations from the public do not go amiss.</p>
+	<p>The Asia Pacific NGO Awards, organized by the Resource Alliance and Citigroup Asia Pacific, and funded by the Citigroup Foundation, is the only regional competition of its kind that celebrates and rewards the best NGOs/non-profit organizations. First launched in 2004, the Awards focused on professional management, innovation in local resource mobilization, and the effectiveness of the organization's programs in improving the lives of the people they serve.</p> 	
+<br>
+	<img src="award3.jpg" alt="Special Award" style="width:500px; height:600px;">
+	<h3>Anugerah Khas</h3>
+    	<p>SHELTER was awarded with an 'Anugerah Khas' (Special Award) by the Prison Department of Malaysia in conjunction with their launching of National Level Prisons Day celebration at Prison College in Kajang on 4th November 2007.</p>
+	<p>The award was given in recognition of SHELTER's commitment in working with the prison authorities and providing prison educational development services for young prisoners in Kajang Prison.</p>
+	<p>Effective 2005, SHELTER started a program for male young prisoners at Kajang prison to provide a range of educational and rehabilitation services including group intervention activities, academic enhancement classes, legal aid, vocational training, and counseling for family reconciliation.</p>
+	<p>SHELTER also offered after-release rehabilitation programs for remanded young prisoners, it covered programs targeted at keeping minor offenders out of prison, provided treatment to young prisoners who are victims of child abuse and neglect, helped them to employment opportunities, provided counseling for young prisoners and their families and many more, including forming a brass band for young prisoners in prison and a halfway home.</p>
+	<p>As a sign of recognition and acknowledgement of SHELTER's commitment towards educational and rehabilitation activities of young prisoners in Kajang Prison, it offers SHELTER's further commitment to increase quality services towards excellence.</p>
+	<p>The then Executive Director, Mr. James Nayagam, said the award further encourage him to work harder for the development of young prisoners in Kajang prison alone but also in all the prisons in Malaysia if they need our services. He further emphasized, SHELTER will always support our government's policy in preventing and reducing crime in our country. At the moment, SHELTER has discontinued this program.</p>
+ <br>
+  </div>
+<p><a href="#Top">Back to top</a></p>
+<div class="footer">
+  <h2>DISCLAIMER:This website is not the official website of SHELTHER-Home for Children-.This website was developed for the purpose of learning HTML & CSS only. </h2>
+  <h3>Designed by Farhana & Dominic</h3>
+</div>
+</body>
+</html> 

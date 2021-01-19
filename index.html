@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SHELTER:Home For Children</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+
+.slideshow-container {
+  padding: 5px;
+  position: relative;
+  margin: auto;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.navbar {
+  overflow: hidden; 
+  background-color:#162249; 
+}
+
+.navbar a {
+  float: left; 
+  font-size:16px; 
+  color: white; 
+  text-align: center; 
+  padding: 14px 20px; 
+  text-decoration: none;
+}
+
+
+.dropdown {
+float: left; 
+  overflow:hidden;
+}
+
+.dropdown .dropbtn {
+  font-size:16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #2E3B67;
+}                                          
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #162249;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #2E3B67;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.main {   
+  flex: 100%;
+  background-color: white;
+  padding: 30px;
+}
+
+.footer {
+  padding: 20px; 
+  text-align: center; 
+  background: #2E3B67;
+  font-size:8px; 
+}
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <img src="header1.png" alt="Header1" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="header2.png" alt="Header2" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="header3.jpg" alt="Header3" style="width:100%">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); 
+}
+function myFunction() {
+  alert("WELCOME TO OUR WEBSITE!");
+}
+</script>
+<div class="navbar">
+  <a href="shelter.html">HISTORY</a>
+  <a href="mission.html">MISSION & GOAL</a>
+  <a href="awards.html">AWARD</a>
+  <a href="donation.html">DONATION</a>
+  <a href="volunteer.html">VOLUNTEER</a>
+  <a href="contact.html">CONTACT</a> 
+ <div class="dropdown">
+    <button class="dropbtn">STORY 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="storychildren.html">STORY ABOUT CHILDREN</a>
+      <a href="storyfemale.html">STORY ABOUT FEMALE TEENAGER</a>
+      <a href="storymale.html">STORY ABOUT MALE TEENAGER</a>
+    </div>
+  </div> 
+</div>
+<button onclick="myFunction()">HELLO</button>
+<div class="main">
+    	<h1 id="Top">SHELTER</h1>
+	<img src="shelter1.jpg" alt="SHELTER 1">
+	<h3>Shelter 1 located at Petaling Jaya</h3>
+	<h2>SHELTER 1</h2>
+    	<p>Shelter 1 is a home for children from 4 to 12 years of age who have been abused, neglected, at-risk or abandoned by their families, parents or guardians.</p>
+    	<p>Most of our children here go to a Government school. Some, however, (those who are weak in their studies) go through a home schooling programme.</p>
+    	<p>Our children are cared for by staff who work on a 24-hour shift, following a roster, providing rehabilitation and care for the children; an administrative officer who deals with the children's school matters, volunteers, visitors and children's events; a cook that prepares all the meals for the children and a manager that oversees the Home.</p>
+ <br>
+	<img src="shelter2.jpg" alt="SHELTER 2">
+	<h3>Shelter 2 located at Kuala Lumpur</h3>
+    	<h4>SHELTER 2</h4>
+    	<p>Shelter 2 is a home for teenage girls from 13 to 18 years. The second residential home, affectionately referred to as Shelter 2 is located in Taman Overseas Union Garden (OUG). It is a home designated for teenage girls aged 13 to 18. Teenage girls who have grown to 13 years at Shelter 1 will be qualified to enter this home.</p>
+    	<p>Other abused teenage girls referred by the public will also be housed here. It is here that teenage girls receive appropriate knowledge and training skills to guide them towards self-reliance and assurance to face the future.</p>
+    	<p>They are helped to be able to further their studies at various institutions after their SPM or STPM. Shelter 2 also conducts activities which can help the girls develop their independence equipping them with skills that can be used in society. We hope that these girls, given the right opportunities, can succeed in their future chosen fields of work.</p>
+<br>
+	<img src="shelter3.jpg" alt="SHELTER 3">
+	<h3>Shelter 3 located at Petaling Jaya</h3>
+	<h4>SHELTER 3</h4>
+    	<p>The third home is affectionately referred to as Shelter 3 and is located at Section 8 in Petaling Jaya. This home is similar to Shelter 2, in that it houses teenage boys aged 13 to 18. Shelter 1 boys who have reached the age of 13 may qualify to enter Shelter 3. In addition to this, teenage boys from abused backgrounds referred by the public may also be housed here.</p>
+    	<p>Teenage boys here are given appropriate guidance and learning skills to instill self-assurance to face the future. Just like Shelter 2, the boys are also helped to further their studies or start their working life after their SPM or STPM.</p>
+    	<p>We believe that the teenagers in our home have the potential to go beyond the constraints of abuse and to equal opportunity tertiary level education and financial independence.</p>
+ <br>
+</div>
+<p><a href="#Top">Back to top</a></p>
+<div class="footer">
+  <h2>DISCLAIMER:This website is not the official website of SHELTHER-Home for Children-.This website was developed for the purpose of learning HTML & CSS only. </h2>
+  <h3>Designed by Farhana & Dominic</h3>
+<button onclick="document.location='aboutus.html'">ABOUT US</button>
+
+</div>
+</body>
+</html> 

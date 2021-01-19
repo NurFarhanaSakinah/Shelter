@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>STORY</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+
+.slideshow-container {
+  padding: 5px;
+  position: relative;
+  margin: auto;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.navbar {
+  overflow: hidden; 
+  background-color:#162249; 
+}
+
+.navbar a {
+  float: left; 
+  font-size:16px; 
+  color: white; 
+  text-align: center; 
+  padding: 14px 20px; 
+  text-decoration: none;
+}
+
+
+.dropdown {
+float: left; 
+  overflow:hidden;
+}
+
+.dropdown .dropbtn {
+  font-size:16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #2E3B67;
+}                                          
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #162249;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #2E3B67;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.main {   
+  flex: 100%;
+  background-color: white;
+  padding: 30px;
+}
+
+.footer {
+  padding: 20px; 
+  text-align: center; 
+  background: #2E3B67;
+  font-size:8px; 
+}
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <img src="header1.png" alt="Header1" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="header2.png" alt="Header2" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="header3.jpg" alt="Header3" style="width:100%">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); 
+}
+</script>
+
+<div class="navbar">
+  <a href="index.html">SHELTER</a>
+  <a href="shelter.html">HISTORY</a>
+  <a href="mission.html">MISSION & GOAL</a>
+  <a href="awards.html">AWARD</a>
+  <a href="donation.html">DONATION</a>
+  <a href="volunteer.html">VOLUNTEER</a>
+  <a href="contact.html">CONTACT</a> 
+ <div class="dropdown">
+    <button class="dropbtn">STORY 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="storychildren.html">STORY ABOUT CHILDREN</a>
+      <a href="storymale.html">STORY ABOUT MALE TEENAGER</a>
+    </div>
+  </div> 
+</div>
+
+<div class="main">
+	<h1 id="Top">Female Teen</h1>
+	<img src="female.jpg"  alt="angel" style="width:800px;height:500px;">
+    	<h2>Angel-The Aspiring Businesswoman</h2>
+        <p>"A proud business owner at the age of 21 and one who has experience grooming various renowned artists in Malaysia, Angel shares her life story with us and how SHELTER played an important part in her life."</p>
+
+<p>At a young age, Angel's dream was to be a lawyer when she grows up but life was tough for her then. Angel, the only child in her family, whose father passed away when she was a baby, grew up with her grandmother. Her mother remarried and explained that she gave her to her grandmother because her house was near the school.</p>
+
+<p>At that time, Angel's Aunt worked at a Home. Angel then got a chance to visit the Home and saw the environment in the Home. She really liked it and she would ask to stay with the children in the Home during the school holidays. Angel was only 11 then. A year later, her mother passed away. When she was 13, her Aunt's friend who liked her wanted to adopt her but she declined.</p>
+
+<p>By the age of 14, she was not happy with her environment and had no contact with her family anymore, so she asked her Aunt's friend to send her to a Home. She was then sent to SHELTER.</p>
+
+<p>This is one of Angel's turning points of life. At that time, SHELTER 2 was a vocational home. The Home Manager there made sure that all the girls would learn a variety of skills. At these classes, the girls were taught knitting, cooking, sewing, hairdressing, flower arrangement, cross- stitch and even basic English and Computer literacy. These classes were held daily. She was the top student in the Home and teachers were fond of her as she had a strong desire to learn. Among all the skills, she liked hairdressing the most. At this point in her life, Mr John Loga, the Community Officer, helped to get her Birth Certificate. Her grandmother for some reason had lost it. After nine months at SHELTER, her stepfather wanted to take her back. Ms Delilah*, the Home Manager then, stopped it as she felt that the stepfather wanted to use her for some other purpose and had no interest, whatsoever, in taking care of her.</p>
+
+<p>However, another volunteer Ching, who had been teaching her hairdressing, took her as a trainee as she ran her own business. She was 15 then. Angel stayed with her, followed her to work, started to learn what it is like to work and also learnt many other things from Ching and her staff by careful observation. Ching was not calculative and did not hesitate to spend on Angel. There was also another ex-resident of SHELTER who was staying and working with Ching. It was a difficult start for Angel as there was a lot to adjust to but she eventually got used to it. Two years later, she got a scholarship to do a course with Kimarie. Others usually complete the course in 2 years but Angel did it in 8 months! This is because she has a strong interest to learn and her work experience covered many aspects of the course. Wella saw her positive attitude to learn and decided to sponsor her Advanced Course and she finished it in a few months as well.</p>
+
+<p>Angel's life started to take a better turn. She was hired in a famous hairstylist place known as Jesmine's and she got the chance to groom artists like the Alleycats, Reshmonu, Jacklyn Victor, Anantha and Ram from Astro, Sasi the Don and even professionals like lawyers and doctors. At this point of time, Angel wanted to expand her repertoire of skills so she paid to take courses to learn other grooming skills like Make-Up, Waxing and so on while working.</p>
+
+<p>After two years, she felt that she was not learning much, so she moved on and worked for another person in Puchong. However she was only paid RM1200 a month. The owner was uninvolved in the business and expected her to do everything from A-Z, ie from contacting the suppliers to hairstyling and grooming. With her qualifications and years of experience, she really felt underpaid but at least the pay was stable.</p>
+
+<p>A volunteer named Heather*, who helped at SHELTER 2 had always kept in touch with her and heard about her predicament. Heather was the person Angel depended on in hard times. When Heather saw the potential in Angel, she advised her to start her own business. At that point in time, Angel was not courageous enough to make the move. However, the owner saw the potential in her and made her an offer to be a partner in order to keep her. Heather protested vehemently and strongly advised Angel not to agree as Angel would be sharing the profit with a sleeping partner - Angel listened.</p>
+
+<p>Not long after, things got tensed between Angel and the owner due to the decline of offer and a slip of words were said to her that caused a misunderstanding and Angel decided to leave. With a lot of encouragement from Heather and some financial help, Angel started her own business with her measly savings of Rm3000. It was very hard for her at the beginning as she had just turned 21. However, one by one, customers who knew that Angel left her former place came to her new place. In just two weeks, she already made more than she had saved in 2 years! She then realized her true capability and how much she had been missing out and that Heather was the person who really pushed her.</p>
+
+<p>Today, Angel is no longer in contact with Heather due to some issues but the ex-Home Manager of SHELTER 2, Melissa, got in touch with her and is now her pillar of strength. Angel has a well established business with staff and calls it Angel's Hair Beauty Studio. She is currently happily married and gave birth to a lovely daughter not too long ago. Angel who is very grateful to SHELTER does not charge or would give a good price to ex-staff or staff from SHELTER, both present and previous ones who go to her Beauty studio.</p>
+<br>
+  </div>
+<p><a href="#Top">Back to top</a></p>
+<div class="footer">
+  <h2>DISCLAIMER:This website is not the official website of SHELTHER-Home for Children-.This website was developed for the purpose of learning HTML & CSS only. </h2>
+  <h3>Designed by Farhana & Dominic</h3>
+</div>
+</body>
+</html>
+
